@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 
-img = cv2.imread('peppersgrey.jpg')
+img = cv2.imread('.data/peppersgrey.jpg')
 img = img[:,:,0]
 img2=np.zeros((np.shape(img)[0]+1,np.shape(img)[1]+1)) 
 img2[1:np.shape(img)[0]+1,1:np.shape(img)[1]+1] = img
@@ -21,8 +21,11 @@ s_row = int(s_row)  //2
 s_col = int(s_col)  //2
 
 x, y = np.mgrid[-s_row:s_row+1, -s_col:s_col+1]
+
+# Rotate Image by angle(degrees) specified by theta.
 theta=50
 theta=theta*np.pi/180
+
 
 x_new=((np.cos(theta)*(x))-(np.sin(theta)*(y)))
 y_new=((np.sin(theta)*(x))+(np.cos(theta)*(y)))
